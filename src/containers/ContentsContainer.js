@@ -62,7 +62,7 @@ export default class ContentsContainer extends Component {
           onChange={handleChange}
           variant="fullWidth"
           TabIndicatorProps={{ style: { background: "blue" } }}
-          textColor="black"
+          textColor="primary"
           aria-label="icon label tabs example"
         >
           <Tab label="MOVIES" style={styles.tab} />
@@ -71,13 +71,13 @@ export default class ContentsContainer extends Component {
         </Tabs>
 
         <TabPanel value={this.state.value} index={0}>
-          <Movies dropDown={true} list={movieType} />
+          <Movies dropDown={"movie"} list={movieType} />
         </TabPanel>
         <TabPanel value={this.state.value} index={1}>
-          <Movies dropDown={false} />
+          <Movies dropDown={"search"} />
         </TabPanel>
         <TabPanel value={this.state.value} index={2}>
-          <Movies dropDown={true} list={tvType} />
+          <Movies dropDown={"tv"} list={tvType} />
         </TabPanel>
       </div>
     );

@@ -27,7 +27,9 @@ class DropDown extends Component {
     return (
       <FormControl variant="outlined" className={classes.dropDown}>
         <InputLabel id="demo-simple-select-outlined-label">
-          {dropDown ? "Category" : "Search Type"}
+          {dropDown === "movie" || dropDown === "tv"
+            ? "Category"
+            : "Search Type"}
         </InputLabel>
         <Select
           labelId="demo-simple-select-outlined-label"

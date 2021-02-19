@@ -2,25 +2,6 @@ import axios from "axios";
 
 import { API_KEY, BASE_URL } from "../config/api_config";
 
-// export const getMovies = async (movieName) => {
-//   const url = BASE_URL;
-//   try {
-//     const response = await axios.get(url, {
-//       params: {
-//         q: movieName,
-//         api_key: APP_KEY,
-//       },
-//     });
-
-//     const movies = response.data.hits;
-
-//     console.log(movies);
-
-//     return recipes;
-//   } catch (error) {
-//     throw error;
-//   }
-// };
 export const getMovies = async (selectedCat) => {
   const encodedUri = encodeURIComponent(selectedCat);
 
@@ -35,16 +16,16 @@ export const getMovies = async (selectedCat) => {
   return movies;
 };
 
-// export const getRecipe = async (recipeUri) => {
-//   const encodedUri = encodeURIComponent(recipeUri);
+export const getTvs = async (selectedCat) => {
+  const encodedUri = encodeURIComponent(selectedCat);
 
-//   const api_call = await fetch(
-//     `${BASE_URL}?r=${encodedUri}&app_id=${APP_ID}&app_key=${APP_KEY}`
-//   );
+  const api_call = await fetch(
+    `${BASE_URL}/tv/${encodedUri}?api_key=${API_KEY}`
+  );
 
-//   const data = await api_call.json();
+  const data = await api_call.json();
 
-//   const recipe = data[0];
+  const movies = await data.results;
 
-//   return recipe;
-// };
+  return movies;
+};

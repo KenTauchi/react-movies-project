@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { getMovies } from "../services/api";
+import { getMovies, getTvs } from "../services/api";
 import MovieCard from "../components/MovieCard";
 import DropDown from "../components/DropDown";
 
@@ -9,7 +9,10 @@ export class Movies extends Component {
   componentDidMount = async () => {
     this.setState({
       type: this.props.list[0].term,
-      dataList: await getMovies(this.props.list[0].term),
+      dataList:
+        this.props.dropDown === "movie"
+          ? await getMovies(this.props.list[0].term)
+          : await getTvs(this.props.list[0].term),
     });
 
     console.log("componentDidMounnt rendered");
@@ -21,7 +24,10 @@ export class Movies extends Component {
     const handleChange = async (event) => {
       this.setState({
         type: event.target.value,
-        dataList: await getMovies(event.target.value),
+        dataList:
+          dropDown === "movie"
+            ? await getMovies(event.target.value)
+            : await getTvs(event.target.value),
       });
     };
 
@@ -29,7 +35,7 @@ export class Movies extends Component {
 
     return (
       <div>
-        {dropDown ? (
+        {dropDown !== "search" ? (
           <DropDown
             selectLists={list}
             onChange={handleChange}

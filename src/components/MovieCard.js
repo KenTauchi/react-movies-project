@@ -7,17 +7,20 @@ import CardMedia from "@material-ui/core/CardMedia";
 import CardContent from "@material-ui/core/CardContent";
 
 const styles = (theme) => ({
-  form: {
-    margin: "2rem",
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
+  container: {
+    marginTop: "2rem",
+    display: "grid",
+    gridTemplateColumns: ".3fr 1fr",
+    textAlign: "left",
   },
-  textField: {
-    width: "30%",
-    margin: "0 6px",
+  img: {
+    width: "300px",
+    height: "500px",
   },
+  textContainer: {
+    alignSelf: "center",
+  },
+  header: { textAlign: "center" },
 });
 
 export class MovieCard extends Component {
@@ -28,19 +31,26 @@ export class MovieCard extends Component {
       popularity,
       overview,
       poster_path,
+      classes,
+      theme,
+      name,
     } = this.props;
 
     return (
-      <Card>
+      <Card className={classes.container}>
         <CardMedia
-          image={`https://image.tmdb.org/t/p/w500${poster_path}`}
+          className={classes.img}
+          image={`https://image.tmdb.org/t/p/w500/${poster_path}`}
           label={"Movie Poster"}
         />
-        <CardHeader
-          title={title}
-          subheader={`Release Date: ${release_date} | Popularity: ${popularity}`}
-        />
-        <CardContent>{overview}</CardContent>
+        <div className={classes.textContainer}>
+          <CardHeader
+            title={title ? title : name}
+            className={classes.header}
+            subheader={`Release Date: ${release_date} | Popularity: ${popularity}`}
+          />
+          <CardContent>{overview}</CardContent>
+        </div>
       </Card>
     );
   }
