@@ -25,7 +25,22 @@ export const getTvs = async (selectedCat) => {
 
   const data = await api_call.json();
 
-  const movies = await data.results;
+  const tvs = await data.results;
 
-  return movies;
+  return tvs;
+};
+
+export const searchByKeyword = async (media, name) => {
+  const encodedUri = encodeURIComponent(media);
+  const encodedName = encodeURIComponent(name);
+
+  const api_call = await fetch(
+    `${BASE_URL}/search/${encodedUri}?api_key=${API_KEY}&query=${encodedName}`
+  );
+
+  const data = await api_call.json();
+
+  const searchResults = await data.results;
+
+  return searchResults;
 };

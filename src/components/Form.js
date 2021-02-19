@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import { withStyles } from "@material-ui/core/styles";
@@ -31,13 +30,14 @@ class Form extends Component {
       theme,
       type,
       onChange,
+      list,
     } = this.props;
 
     return (
       <form onSubmit={onSubmit} className={classes.form}>
         <TextField
           label="Search"
-          name="recipeName"
+          name="Search"
           className={classes.textField}
           onChange={(e) => onInputChange(e.target.value)}
           margin="normal"

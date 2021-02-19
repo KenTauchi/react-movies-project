@@ -45,7 +45,7 @@ export default class ContentsContainer extends Component {
   };
 
   render() {
-    const { setType } = this.props;
+    const { type, keyword, searchDataList } = this.props;
     const handleChange = (event, newValue) => {
       this.setState({ value: newValue });
     };
@@ -55,6 +55,8 @@ export default class ContentsContainer extends Component {
         backgroundColor: "#E3E3E3",
       },
     };
+
+    console.log("research result", searchDataList);
     return (
       <div style={{ border: "1px solid black" }}>
         <Tabs
@@ -74,7 +76,12 @@ export default class ContentsContainer extends Component {
           <Movies dropDown={"movie"} list={movieType} />
         </TabPanel>
         <TabPanel value={this.state.value} index={1}>
-          <Movies dropDown={"search"} />
+          <Movies
+            dropDown={"search"}
+            keyword={keyword}
+            searchType={type}
+            searchDataList={searchDataList}
+          />
         </TabPanel>
         <TabPanel value={this.state.value} index={2}>
           <Movies dropDown={"tv"} list={tvType} />
