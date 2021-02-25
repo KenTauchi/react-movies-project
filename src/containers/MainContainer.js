@@ -36,22 +36,31 @@ export class MainContainer extends Component {
     };
 
     return (
-      <div style={{ width: "95%" }}>
+      <div>
         <Form
           type={setType}
           onChange={handleChange}
           list={searchType}
           onInputChange={handleInputChange}
           onSubmit={fetchByKeyword}
+          style={styles.container}
         />
         <ContentsContainer
           type={setType}
           keyword={keyword}
           searchDataList={dataList}
+          onChange={handleChange}
         />
       </div>
     );
   }
 }
+
+const styles = {
+  container: {
+    marginTop: "3rem",
+    marginBottom: "3rem",
+  },
+};
 
 export default MainContainer;

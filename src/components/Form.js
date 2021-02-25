@@ -9,7 +9,8 @@ import { searchType } from "../services/ListData";
 
 const styles = (theme) => ({
   form: {
-    margin: "2rem",
+    marginBottom: "5rem",
+    marginTop: "5rem",
     display: "flex",
     flexDirection: "row",
     justifyContent: "center",
@@ -18,6 +19,15 @@ const styles = (theme) => ({
   textField: {
     width: "30%",
     margin: "0 6px",
+  },
+  button: {
+    backgroundColor: "#33499E",
+    color: "white",
+    "&:hover": {
+      backgroundColor: "#0069d9",
+      borderColor: "#0062cc",
+      boxShadow: "none",
+    },
   },
 });
 

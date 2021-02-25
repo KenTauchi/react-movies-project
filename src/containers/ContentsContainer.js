@@ -45,7 +45,7 @@ export default class ContentsContainer extends Component {
   };
 
   render() {
-    const { type, keyword, searchDataList } = this.props;
+    const { type, keyword, searchDataList, onChange } = this.props;
     const handleChange = (event, newValue) => {
       this.setState({ value: newValue });
     };

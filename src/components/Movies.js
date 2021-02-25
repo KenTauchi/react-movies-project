@@ -12,7 +12,7 @@ export class Movies extends Component {
   };
 
   componentDidMount = () => {
-    this.get_example();
+    this.get_searchOptions();
     this.setState({
       dataChange: false,
     });
@@ -26,7 +26,7 @@ export class Movies extends Component {
     }
   };
 
-  async get_example() {
+  async get_searchOptions() {
     const term =
       this.props.dropDown !== "search" ? this.props.list[0].term : null;
     const data =
@@ -53,19 +53,10 @@ export class Movies extends Component {
   };
 
   render() {
-    const { dropDown, list, searchType, keyword } = this.props;
+    const { dropDown, list, searchType, keyword, onChange } = this.props;
     const { type, dataList, keywordChange, dataChange } = this.state;
 
-    console.log(
-      "keywordChange",
-      keywordChange,
-      "keyword",
-      keyword,
-      "dataChange",
-      dataChange,
-      "dataList",
-      dataList
-    );
+    console.log(type);
 
     return (
       <div>
@@ -90,29 +81,9 @@ export class Movies extends Component {
           <h1>Please initiate a search</h1>
         ) : dataList.length > 0 && keyword !== "" ? (
           dataList.map((movie) => <MovieCard dataList={dataList} {...movie} />)
-        ) : null}
-
-        {/* {dataList !== undefined ? (
-          dataList.map((movie) => <MovieCard dataList={dataList} {...movie} />)
-        ) : dataList.length === 0 && keyword.length > 0 ? (
-          <h1>no results found</h1>
-        ) : keywordChange && keyword.length > 0 ? (
-          <h1>Please initate a search</h1>
-        ) : keyword.length === 0 && !keywordChange ? (
-          <h1>Please enter search</h1>
         ) : (
-          <h1>Didn't catch anything</h1>
-        )} */}
-
-        {/* {keywordChange ? (
-          <h1>Please initate a search</h1>
-        ) : resultReady ? (
-          dataList.map((movie) => <MovieCard dataList={dataList} {...movie} />)
-        ) : !keyword && (dataList.length === 0 || dataList === undefined) ? (
-          <h1>Please enter search</h1>
-        ) : (
-          <h1>no results found</h1>
-        )} */}
+          <h1>Please initiate search</h1>
+        )}
       </div>
     );
   }
