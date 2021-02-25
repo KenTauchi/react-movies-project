@@ -1,4 +1,5 @@
 import axios from "axios";
+import { unstable_renderSubtreeIntoContainer } from "react-dom";
 
 import { API_KEY, BASE_URL } from "../config/api_config";
 
@@ -41,6 +42,7 @@ export const searchByKeyword = async (media, name) => {
   const data = await api_call.json();
 
   const searchResults = await data.results;
+  const searchData = searchResults.length !== 0 ? searchResults : undefined;
 
-  return searchResults;
+  return searchData;
 };

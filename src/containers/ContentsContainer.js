@@ -56,7 +56,6 @@ export default class ContentsContainer extends Component {
       },
     };
 
-    console.log("research result", searchDataList);
     return (
       <div style={{ border: "1px solid black" }}>
         <Tabs
