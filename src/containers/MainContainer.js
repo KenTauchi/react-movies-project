@@ -43,7 +43,7 @@ export class MainContainer extends Component {
           list={searchType}
           onInputChange={handleInputChange}
           onSubmit={fetchByKeyword}
-          style={styles.container}
+          
         />
         <ContentsContainer
           type={setType}

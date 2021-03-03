@@ -56,8 +56,6 @@ export class Movies extends Component {
     const { dropDown, list, searchType, keyword, onChange } = this.props;
     const { type, dataList, keywordChange, dataChange } = this.state;
 
-    console.log(type);
-
     return (
       <div>
         {dropDown !== "search" ? (
@@ -80,7 +78,9 @@ export class Movies extends Component {
         ) : keywordChange && keyword !== "" && !dataChange ? (
           <h1>Please initiate a search</h1>
         ) : dataList.length > 0 && keyword !== "" ? (
-          dataList.map((movie) => <MovieCard dataList={dataList} {...movie} />)
+          dataList.map((movie, index) => (
+            <MovieCard dataList={dataList} {...movie} key={index} />
+          ))
         ) : (
           <h1>Please initiate search</h1>
         )}

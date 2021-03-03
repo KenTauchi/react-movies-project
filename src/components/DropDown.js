@@ -38,8 +38,10 @@ class DropDown extends Component {
           onChange={onChange}
           label="Type"
         >
-          {selectLists.map((list) => (
-            <MenuItem value={list.term}>{list.term}</MenuItem>
+          {selectLists.map((list, index) => (
+            <MenuItem value={list.term} key={index}>
+              {list.term}
+            </MenuItem>
           ))}
         </Select>
       </FormControl>

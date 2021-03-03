@@ -72,7 +72,7 @@ export default class ContentsContainer extends Component {
         </Tabs>
 
         <TabPanel value={this.state.value} index={0}>
-          <Movies dropDown={"movie"} list={movieType} />
+          <Movies dropDown={"movie"} list={movieType} onChange={onChange}/>
         </TabPanel>
         <TabPanel value={this.state.value} index={1}>
           <Movies
@@ -83,7 +83,7 @@ export default class ContentsContainer extends Component {
           />
         </TabPanel>
         <TabPanel value={this.state.value} index={2}>
-          <Movies dropDown={"tv"} list={tvType} />
+          <Movies dropDown={"tv"} list={tvType} onChange={onChange}/>
         </TabPanel>
       </div>
     );
